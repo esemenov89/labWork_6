@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+    <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <servlet-name>Main</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Main</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>WhiteFilter</filter-name>
+        <filter-class>code.controllers.filters.WhiteList</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>WhiteFilter</filter-name>
+        <url-pattern>/listEntitiesForUsers/*</url-pattern>
+    </filter-mapping>
+    <filter>
+         <filter-name>AdminFilter</filter-name>
+         <filter-class>code.controllers.filters.AdminList</filter-class>
+     </filter>
+     <filter-mapping>
+         <filter-name>AdminFilter</filter-name>
+         <url-pattern>/listEntitiesForAdmins/*</url-pattern>
+     </filter-mapping>
+    <filter>
+        <filter-name>RegisterFilter</filter-name>
+        <filter-class>code.controllers.filters.RegisterFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RegisterFilter</filter-name>
+        <url-pattern>/register/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>ReadFilter</filter-name>
+        <filter-class>code.controllers.filters.ReadFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ReadFilter</filter-name>
+        <url-pattern>/read/*</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/Main-servlet.xml</param-value>
+    </context-param>
+</web-app>
