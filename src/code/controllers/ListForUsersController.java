@@ -32,14 +32,8 @@ public class ListForUsersController {
     ArrayList<StorageUnit> storageUnits = null;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView showList(ModelAndView mav) {
-        try {
-            storageUnits=storageUnitService.getAllStorageUnits();
-        }  catch (SQLException e) {
-            mav.addObject("error","Sorry we are have a problem with database, but we are" +
-                    " fix it in 5 minutes");
-            mav.addObject("/error");
-        }
+    public ModelAndView showList(ModelAndView mav) throws Exception{
+        storageUnits=storageUnitService.getAllStorageUnits();
         mav.addObject("books", storageUnits);
         mav.setViewName("listEntitiesForUsers/forUsers");
 

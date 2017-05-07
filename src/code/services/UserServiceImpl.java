@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User validateUser(String login, String password, String mail) throws SQLException {
-        User user=new User(login,mail,password,0,0);
+        User user=new User(login,mail,password,"ROLE_USER",1);
         Pattern p = Pattern.compile("^[a-zA-Z0-9]{2,16}$+");
         Matcher m = p.matcher(login);
         if (!m.matches()){

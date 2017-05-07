@@ -9,12 +9,14 @@
         <module name="labWork_3" />
         <module name="labWork_4" />
         <module name="labWork_5" />
+        <module name="labWork_6" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="labWork_3" target="1.8" />
       <module name="labWork_4" target="1.8" />
       <module name="labWork_5" target="1.8" />
+      <module name="labWork_6" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

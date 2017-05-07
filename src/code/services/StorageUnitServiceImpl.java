@@ -30,11 +30,7 @@ public class StorageUnitServiceImpl implements StorageUnitService {
     @Override
     public ArrayList<StorageUnit> getAllStorageUnits() throws SQLException {
         ArrayList<StorageUnit> storageUnits = null;
-        try {
-            storageUnits = storageUnitDAO.getAllStorageUnits();
-        } catch (SQLException e) {
-            throw e;
-        }
+        storageUnits = storageUnitDAO.getAllStorageUnits();
         return storageUnits;
     }
 

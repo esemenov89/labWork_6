@@ -19,7 +19,7 @@
     <input type="text" name="login"/>
     <p>Password (password most be contain latin symbols and digits, minimum 8 symbols):</p>
     <p style="color: red;">${registerPassword}</p>
-    <input type="text" name="password"/>
+    <input type="password" name="password"/>
     <p>Email:</p>
     <p style="color: red;">${registerMail}</p>
     <input type="text" name="email"/>

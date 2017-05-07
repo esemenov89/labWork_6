@@ -1,32 +1,35 @@
 <%@ page import="com.sun.org.apache.xpath.internal.operations.Bool" %>
+<%@ page import="java.util.Locale" %>
 <!--
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 -->
 <html>
 <head>
-    <title>Internet Library</title>
+    <title>Login Page</title>
     <h1 style="text-align: center">WELCOME!</h1>
 </head>
 <body style="text-align: center">
+<% Locale.setDefault(Locale.ENGLISH); %>
+<%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
 <c:choose>
-<c:when test="${userLogin==null}">
+<c:when test="${username==null}">
 <table border="0" align="center">
     <tr><td>
         <p>For use our library, please authorization or register.</p>
-        <p style="color: red;">${errorLogin}</p>
-        <form method="post">
+        <p style="color: red;">${param.errorLogin}</p>
+        <form name='f' action='/login' method='POST'>
             <table border="0" style="vertical-align: top">
                 <tr><td style="text-align:left;vertical-align:top">
                     Login:
                     <br><br>Password:
                     <br><br><br>
-                    <input type="submit" value="Login"/>
+                    <input name="submit" type="submit" value="Login"/>
                 </td>
                     <td style="text-align:left;vertical-align:top">
-                        <input type="text" name="login"/>
+                        <input type='text' name='username'/>
                         <br><br>
-                        <input type="text" name="password"/>
+                        <input type='password' name='password'/>
                     </td></tr>
             </table>
         </form>
@@ -42,7 +45,7 @@
     </form>
 </div>
 <c:choose>
-<c:when test="${accountType==1}">
+<c:when test="${accountType=='ROLE_ADMIN'}">
 <a href="${pageContext.request.contextPath}/listEntitiesForAdmins">List of books anf users</a>
 </c:when>
 <c:otherwise>

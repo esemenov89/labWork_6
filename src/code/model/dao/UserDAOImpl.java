@@ -92,7 +92,7 @@ public class UserDAOImpl implements UserDAO {
     public void lockOrUnlockUser(String login,int lock) throws SQLException {
         try (Connection connection = ConnectionPool.getInstance().getConnection();
              PreparedStatement statement = connection
-                     .prepareStatement( "UPDATE USERS SET locked=? WHERE NICK = ?")) {
+                     .prepareStatement( "UPDATE USERS SET ENABLED=? WHERE NICK = ?")) {
 
             statement.setInt(1,lock);
             statement.setString(2,login);
@@ -141,12 +141,12 @@ public class UserDAOImpl implements UserDAO {
     public void addUser(User user) throws SQLException {
         try (Connection connection = ConnectionPool.getInstance().getConnection();
              PreparedStatement statement = connection
-                     .prepareStatement( "INSERT INTO USERS(NICK,MAIL,PASSWORD,ACCOUNT_TYPE,LOCKED) VALUES(?,?,?,?,?)")) {
+                     .prepareStatement( "INSERT INTO USERS(NICK,MAIL,PASSWORD,ROLE,ENABLED) VALUES(?,?,?,?,?)")) {
             statement.setString(1,user.getLogin());
             statement.setString(2,user.getMail());
             statement.setString(3,user.getPassword());
-            statement.setInt(4,user.getAccountType());
-            statement.setInt(5,user.getLocked());
+            statement.setString(4,user.getRole());
+            statement.setInt(5,user.getEnabled());
             statement.executeQuery();
         } catch (SQLException e) {
             LOGGER.error(e);
@@ -193,7 +193,7 @@ public class UserDAOImpl implements UserDAO {
         return new User(resultSet.getString("NICK"),
                 resultSet.getString("MAIL"),
                 resultSet.getString("PASSWORD"),
-                resultSet.getInt("ACCOUNT_TYPE"),
-                resultSet.getInt("LOCKED"));
+                resultSet.getString("ROLE"),
+                resultSet.getInt("ENABLED"));
     }
 }

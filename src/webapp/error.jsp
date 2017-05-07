@@ -8,9 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Error</title>
+    <title>Error page</title>
 </head>
 <body>
-<h1>${error}</h1>
+<h1>${errorName}</h1
+<h2>${errorMessage}</h2>
 </body>
 </html>

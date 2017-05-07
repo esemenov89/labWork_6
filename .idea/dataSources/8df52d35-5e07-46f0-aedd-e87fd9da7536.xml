@@ -4,9 +4,9 @@
     <root id="1"/>
     <schema id="2" parent="1" name="ADMIN">
       <ObjectId>48</ObjectId>
-      <IntrospectionTimestamp>2017-04-22.11:08:02</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2017-05-07.11:44:34</IntrospectionTimestamp>
       <CreatedTimestamp>2017-04-13.17:03:19</CreatedTimestamp>
-      <ModifiedTimestamp>2017-04-14.17:10:44</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-05-07.11:44:23</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -184,7 +184,7 @@
     <table id="40" parent="2" name="USERS">
       <ObjectId>20159</ObjectId>
       <CreatedTimestamp>2017-04-14.15:22:14</CreatedTimestamp>
-      <ModifiedTimestamp>2017-04-14.17:10:44</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-05-07.11:44:23</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <routine id="41" parent="2" name="CUSTOM_AUTH">
@@ -2009,11 +2009,11 @@ CUST_FIRST_NAME</ColNames>
       <Position>3</Position>
       <DataType>VARCHAR2(255)|0</DataType>
     </column>
-    <column id="427" parent="40" name="ACCOUNT_TYPE">
+    <column id="427" parent="40" name="ROLE">
       <Position>4</Position>
-      <DataType>NUMBER(*)|0</DataType>
+      <DataType>VARCHAR2(255)|0</DataType>
     </column>
-    <column id="428" parent="40" name="LOCKED">
+    <column id="428" parent="40" name="ENABLED">
       <Position>5</Position>
       <DataType>NUMBER(*)|0</DataType>
     </column>

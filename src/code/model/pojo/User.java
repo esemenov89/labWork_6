@@ -8,8 +8,8 @@ public class User {
     private String login;
     private String mail;
     private String password;
-    private int accountType;
-    private int locked;
+    private String role;
+    private int enabled;
 
     public String getMail() {
         return mail;
@@ -19,20 +19,21 @@ public class User {
         this.mail = mail;
     }
 
-    public int getAccountType() {
-        return accountType;
+    public String getRole() {
+
+        return role;
     }
 
-    public void setAccountType(int accountType) {
-        this.accountType = accountType;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    public int getLocked() {
-        return locked;
+    public int getEnabled() {
+        return enabled;
     }
 
-    public void setLocked(int locked) {
-        this.locked = locked;
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
     }
 
     public String getLogin() {
@@ -51,12 +52,12 @@ public class User {
         this.password = password;
     }
 
-    public User(String login, String mail, String password, int accountType, int locked) {
+    public User(String login, String mail, String password, String role, int enabled) {
         this.login = login;
         this.mail = mail;
         this.password = password;
-        this.accountType = accountType;
-        this.locked = locked;
+        this.role = role;
+        this.enabled = enabled;
     }
 
     @Override
@@ -65,8 +66,8 @@ public class User {
                 "login='" + login + '\'' +
                 ", mail='" + mail + '\'' +
                 ", password='" + password + '\'' +
-                ", accountType=" + accountType +
-                ", locked=" + locked +
+                ", role='" + role + '\'' +
+                ", enabled=" + enabled +
                 '}';
     }
 }
